@@ -674,3 +674,1192 @@ button:hover {
     }
 
 }
+/* ================================= */
+/* SCREEN 3 : MAGIC ONION */
+/* ================================= */
+
+#onionScreen {
+    overflow: hidden;
+}
+
+
+/* Main content */
+
+.onion-content {
+
+    width: 90%;
+
+    max-width: 800px;
+
+    text-align: center;
+
+    position: relative;
+
+    z-index: 5;
+
+    animation:
+        magicAppear 1.5s ease;
+
+}
+
+
+/* Main title */
+
+#magicTitle {
+
+    font-size:
+        clamp(45px, 8vw, 90px);
+
+    font-weight: 300;
+
+    letter-spacing: -3px;
+
+    margin-bottom: 15px;
+
+}
+
+
+/* Description */
+
+.magic-description {
+
+    color: #999;
+
+    font-size: 18px;
+
+    min-height: 25px;
+
+}
+
+
+/* ================================= */
+/* ONION */
+/* ================================= */
+
+.magic-onion {
+
+    position: relative;
+
+    width: 260px;
+
+    height: 280px;
+
+    margin: 30px auto;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+}
+
+
+/* Glowing circle behind onion */
+
+.magic-circle {
+
+    position: absolute;
+
+    width: 220px;
+
+    height: 220px;
+
+    border-radius: 50%;
+
+    background:
+
+        radial-gradient(
+            circle,
+            rgba(255, 126, 179, 0.25),
+            rgba(255, 126, 179, 0.03),
+            transparent 70%
+        );
+
+    filter: blur(10px);
+
+    animation:
+        magicPulse 3s ease-in-out infinite;
+
+}
+
+
+/* Onion itself */
+
+#onionEmoji {
+
+    position: relative;
+
+    z-index: 2;
+
+    font-size: 150px;
+
+    filter:
+
+        drop-shadow(
+            0 0 25px
+            rgba(255, 126, 179, 0.35)
+        );
+
+    animation:
+        onionFloat 3s ease-in-out infinite;
+
+}
+
+
+/* ================================= */
+/* ONION MESSAGE */
+/* ================================= */
+
+.onion-message {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+
+    margin-bottom: 35px;
+
+}
+
+
+.onion-message p {
+
+    font-size: 24px;
+
+    color: white;
+
+}
+
+
+.onion-message span {
+
+    font-size: 14px;
+
+    color: #777;
+
+}
+
+
+/* ================================= */
+/* MAGIC BACKGROUND */
+/* ================================= */
+
+.magic-background {
+
+    position: absolute;
+
+    width: 700px;
+
+    height: 700px;
+
+    border-radius: 50%;
+
+    background:
+
+        radial-gradient(
+            circle,
+            rgba(255, 80, 150, 0.12),
+            transparent 65%
+        );
+
+    filter: blur(50px);
+
+    animation:
+        backgroundPulse 5s ease-in-out infinite;
+
+}
+
+
+/* ================================= */
+/* CONTINUE BUTTON */
+/* ================================= */
+
+#continueButton {
+
+    opacity: 0;
+
+    animation:
+        buttonAppear 1s ease forwards;
+
+    animation-delay: 2.5s;
+
+}
+
+
+/* ================================= */
+/* MAGIC ANIMATIONS */
+/* ================================= */
+
+@keyframes magicAppear {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            scale(0.95)
+            translateY(20px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            scale(1)
+            translateY(0);
+
+    }
+
+}
+
+
+@keyframes onionFloat {
+
+    0%,
+    100% {
+
+        transform:
+            translateY(0)
+            rotate(-2deg);
+
+    }
+
+    50% {
+
+        transform:
+            translateY(-15px)
+            rotate(2deg);
+
+    }
+
+}
+
+
+@keyframes magicPulse {
+
+    0%,
+    100% {
+
+        transform: scale(0.9);
+
+        opacity: 0.5;
+
+    }
+
+    50% {
+
+        transform: scale(1.15);
+
+        opacity: 1;
+
+    }
+
+}
+
+
+@keyframes backgroundPulse {
+
+    0%,
+    100% {
+
+        transform: scale(0.9);
+
+    }
+
+    50% {
+
+        transform: scale(1.15);
+
+    }
+
+}
+
+
+@keyframes buttonAppear {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(10px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+
+    }
+
+}
+
+/* ================================= */
+/* SCREEN 4 : PEEL SELECTION */
+/* ================================= */
+
+#peelSelectScreen {
+
+    overflow: hidden;
+
+}
+
+
+/* ================================= */
+/* CONTENT */
+/* ================================= */
+
+.peel-select-content {
+
+    width: 90%;
+
+    max-width: 800px;
+
+    text-align: center;
+
+    position: relative;
+
+    z-index: 5;
+
+    animation:
+        peelSelectAppear 1s ease;
+
+}
+
+
+/* ================================= */
+/* TITLE */
+/* ================================= */
+
+.peel-title {
+
+    font-size:
+        clamp(42px, 7vw, 75px);
+
+    font-weight: 300;
+
+    letter-spacing: -3px;
+
+    line-height: 1.05;
+
+    margin-bottom: 15px;
+
+}
+
+
+.peel-subtitle {
+
+    color: #777;
+
+    font-size: 16px;
+
+    margin-bottom: 45px;
+
+}
+
+
+/* ================================= */
+/* COUNTER */
+/* ================================= */
+
+.peel-counter {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 35px;
+
+    margin-bottom: 30px;
+
+}
+
+
+/* ================================= */
+/* + AND - BUTTONS */
+/* ================================= */
+
+.counter-button {
+
+    width: 60px;
+
+    height: 60px;
+
+    padding: 0;
+
+    border-radius: 50%;
+
+    font-size: 30px;
+
+    font-weight: 300;
+
+    letter-spacing: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+}
+
+
+.counter-button:hover {
+
+    transform: scale(1.08);
+
+}
+
+
+/* ================================= */
+/* NUMBER */
+/* ================================= */
+
+.counter-number {
+
+    width: 120px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+}
+
+
+#peelCount {
+
+    font-size: 80px;
+
+    line-height: 1;
+
+    font-weight: 200;
+
+    color: #ff7eb3;
+
+    text-shadow:
+
+        0 0 20px
+        rgba(255, 126, 179, 0.3);
+
+}
+
+
+.counter-number small {
+
+    margin-top: 8px;
+
+    font-size: 11px;
+
+    letter-spacing: 4px;
+
+    color: #777;
+
+}
+
+
+/* ================================= */
+/* FUNNY MESSAGE */
+/* ================================= */
+
+.peel-message {
+
+    min-height: 55px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+
+    color: #ddd;
+
+    font-size: 17px;
+
+    margin-bottom: 25px;
+
+}
+
+
+.peel-message span {
+
+    color: #666;
+
+    font-size: 13px;
+
+}
+
+
+/* ================================= */
+/* PEEL DOTS */
+/* ================================= */
+
+.peel-dots {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    margin-bottom: 35px;
+
+}
+
+
+.peel-dots .dot {
+
+    width: 7px;
+
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: #333;
+
+    transition:
+
+        background 0.3s ease,
+
+        transform 0.3s ease;
+
+}
+
+
+.peel-dots .dot.active {
+
+    background: #ff7eb3;
+
+    box-shadow:
+
+        0 0 10px
+        rgba(255, 126, 179, 0.7);
+
+    transform: scale(1.2);
+
+}
+
+
+/* ================================= */
+/* PEEL BUTTON */
+/* ================================= */
+
+.peel-start-button {
+
+    min-width: 190px;
+
+}
+
+
+/* ================================= */
+/* ANIMATION */
+/* ================================= */
+
+@keyframes peelSelectAppear {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(25px)
+            scale(0.98);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+
+    }
+
+}
+
+
+/* ================================= */
+/* MOBILE */
+/* ================================= */
+
+@media (max-width: 600px) {
+
+    .peel-counter {
+
+        gap: 20px;
+
+    }
+
+
+    .counter-button {
+
+        width: 50px;
+
+        height: 50px;
+
+        font-size: 25px;
+
+    }
+
+
+    #peelCount {
+
+        font-size: 65px;
+
+    }
+
+}
+
+/* ================================= */
+/* SCREEN 5 : PREPARATION */
+/* ================================= */
+
+#prepareScreen {
+
+    overflow: hidden;
+
+}
+
+
+/* ================================= */
+/* CONTENT */
+/* ================================= */
+
+.prepare-content {
+
+    width: 90%;
+
+    max-width: 750px;
+
+    text-align: center;
+
+    position: relative;
+
+    z-index: 5;
+
+    animation:
+        prepareAppear 1s ease;
+
+}
+
+
+/* ================================= */
+/* TITLE */
+/* ================================= */
+
+#prepareTitle {
+
+    font-size:
+        clamp(45px, 8vw, 85px);
+
+    font-weight: 300;
+
+    letter-spacing: -4px;
+
+    line-height: 0.95;
+
+    margin-bottom: 25px;
+
+}
+
+
+/* ================================= */
+/* SUBTITLE */
+/* ================================= */
+
+.prepare-subtitle {
+
+    color: #999;
+
+    font-size: 17px;
+
+    margin-bottom: 50px;
+
+}
+
+
+/* ================================= */
+/* LOADING */
+/* ================================= */
+
+.loading-container {
+
+    width: 100%;
+
+    max-width: 500px;
+
+    margin: 0 auto 25px;
+
+}
+
+
+/* Loading bar background */
+
+.loading-bar {
+
+    width: 100%;
+
+    height: 3px;
+
+    background:
+
+        rgba(255, 255, 255, 0.08);
+
+    overflow: hidden;
+
+}
+
+
+/* Actual progress */
+
+.loading-progress {
+
+    width: 0%;
+
+    height: 100%;
+
+    background: #ff7eb3;
+
+    box-shadow:
+
+        0 0 15px
+        rgba(255, 126, 179, 0.8);
+
+    transition:
+
+        width 0.15s linear;
+
+}
+
+
+/* ================================= */
+/* PERCENTAGE */
+/* ================================= */
+
+.loading-percent {
+
+    margin-top: 12px;
+
+    font-size: 12px;
+
+    letter-spacing: 3px;
+
+    color: #555;
+
+}
+
+
+/* ================================= */
+/* STATUS */
+/* ================================= */
+
+.loading-status {
+
+    min-height: 25px;
+
+    color: #777;
+
+    font-size: 13px;
+
+    letter-spacing: 1px;
+
+    margin-bottom: 40px;
+
+    transition:
+
+        opacity 0.3s ease;
+
+}
+
+
+/* ================================= */
+/* BEGIN BUTTON */
+/* ================================= */
+
+.begin-peeling-button {
+
+    min-width: 220px;
+
+}
+
+
+.begin-peeling-button.hidden {
+
+    display: none;
+
+}
+
+
+/* ================================= */
+/* PREPARATION ANIMATION */
+/* ================================= */
+
+@keyframes prepareAppear {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(25px)
+            scale(0.98);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+
+    }
+
+}
+
+
+/* ================================= */
+/* MOBILE */
+/* ================================= */
+
+@media (max-width: 600px) {
+
+    #prepareTitle {
+
+        letter-spacing: -2px;
+
+    }
+
+    .prepare-subtitle {
+
+        font-size: 15px;
+
+    }
+
+}
+
+/* ================================= */
+/* SCREEN 6 : ACTUAL PEELING */
+/* ================================= */
+
+#peelingScreen {
+    overflow: hidden;
+}
+
+
+.peeling-content {
+    width: 90%;
+    max-width: 800px;
+
+    text-align: center;
+
+    position: relative;
+    z-index: 5;
+
+    animation: peelingAppear 1s ease;
+}
+
+
+/* ================================= */
+/* TITLE */
+/* ================================= */
+
+#peelingTitle {
+
+    font-size: clamp(45px, 8vw, 85px);
+
+    font-weight: 300;
+
+    letter-spacing: -4px;
+
+    line-height: 0.95;
+
+    margin-bottom: 15px;
+}
+
+
+#peelingInstruction {
+
+    color: #777;
+
+    font-size: 15px;
+
+    letter-spacing: 1px;
+
+    margin-bottom: 25px;
+
+    min-height: 22px;
+}
+
+
+/* ================================= */
+/* ONION STAGE */
+/* ================================= */
+
+.onion-stage {
+
+    width: 320px;
+    height: 320px;
+
+    margin: 0 auto 15px;
+
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* ================================= */
+/* GLOW */
+/* ================================= */
+
+.onion-glow {
+
+    position: absolute;
+
+    width: 190px;
+    height: 190px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255, 126, 179, 0.13);
+
+    filter: blur(40px);
+
+    animation:
+        onionGlow 3s ease-in-out infinite;
+
+}
+
+
+/* ================================= */
+/* ONION IMAGE */
+/* ================================= */
+
+#onionAnimation {
+
+    position: relative;
+
+    z-index: 2;
+
+    width: 270px;
+    height: 270px;
+
+    object-fit: contain;
+
+    user-select: none;
+
+    pointer-events: none;
+
+    filter:
+        drop-shadow(
+            0 15px 25px
+            rgba(0,0,0,0.35)
+        );
+
+    transition:
+        transform 0.15s ease;
+
+}
+
+
+/* Tiny movement when peeling */
+
+#onionAnimation.peeling {
+
+    transform:
+        scale(1.04)
+        rotate(-1deg);
+
+}
+
+
+/* ================================= */
+/* PEEL BUTTON */
+/* ================================= */
+
+.peel-button {
+
+    min-width: 190px;
+
+    padding: 14px 28px;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.2);
+
+    background:
+        rgba(255,255,255,0.04);
+
+    color: white;
+
+    font-size: 13px;
+
+    letter-spacing: 2px;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease,
+        opacity 0.2s ease;
+
+}
+
+
+.peel-button:hover {
+
+    background:
+        rgba(255,126,179,0.12);
+
+    box-shadow:
+        0 0 25px
+        rgba(255,126,179,0.15);
+
+    transform:
+        translateY(-2px);
+
+}
+
+
+.peel-button:active {
+
+    transform:
+        scale(0.96);
+
+}
+
+
+.peel-button.disabled {
+
+    pointer-events: none;
+
+    opacity: 0.35;
+
+}
+
+
+/* ================================= */
+/* COUNTER */
+/* ================================= */
+
+.peel-progress {
+
+    margin-top: 18px;
+
+    font-size: 11px;
+
+    letter-spacing: 3px;
+
+    color: #555;
+
+}
+
+
+/* ================================= */
+/* SCREEN APPEAR */
+/* ================================= */
+
+@keyframes peelingAppear {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(25px)
+            scale(0.97);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+
+    }
+
+}
+
+
+/* ================================= */
+/* ONION GLOW ANIMATION */
+/* ================================= */
+
+@keyframes onionGlow {
+
+    0% {
+
+        transform: scale(0.9);
+
+        opacity: 0.5;
+
+    }
+
+    50% {
+
+        transform: scale(1.1);
+
+        opacity: 1;
+
+    }
+
+    100% {
+
+        transform: scale(0.9);
+
+        opacity: 0.5;
+
+    }
+
+}
+
+
+/* ================================= */
+/* MOBILE */
+/* ================================= */
+
+@media (max-width: 600px) {
+
+    #peelingTitle {
+
+        letter-spacing: -2px;
+
+    }
+
+    .onion-stage {
+
+        width: 260px;
+        height: 260px;
+
+    }
+
+    #onionAnimation {
+
+        width: 225px;
+        height: 225px;
+
+    }
+
+}
