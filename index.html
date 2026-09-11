@@ -1,36 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>Useless</title>
 
     <link rel="stylesheet" href="style.css">
+
 </head>
+
 
 <body>
 
-    <main class="screen">
 
-        <!-- Background decoration -->
+    <!-- ================================= -->
+    <!-- SCREEN 1 : INTRODUCTION -->
+    <!-- ================================= -->
+
+    <main id="introScreen" class="screen">
+
         <div class="background-glow"></div>
 
         <div class="content">
 
-            <p class="small-text">SOMETHING IS WAITING FOR YOU</p>
+            <p class="small-text">
+                SOMETHING IS WAITING FOR YOU
+            </p>
 
-            <h1 id="mainTitle">
+            <h1>
                 Something is waiting.
             </h1>
 
-            <p id="description" class="description">
+            <p class="description">
                 We just don't know where it is.
             </p>
 
-            <div id="instruction" class="instruction">
-                <span>Maybe you can find it.</span>
+            <div class="instruction">
+
+                <span>
+                    Maybe you can find it.
+                </span>
 
                 <strong>
                     SPOT SOMETHING PINK
@@ -39,6 +55,7 @@
                 <small>
                     Any shade. Any object. We don't judge.
                 </small>
+
             </div>
 
             <button id="startButton">
@@ -47,7 +64,6 @@
 
         </div>
 
-        <!-- Decorative pink dots -->
         <div class="pink-dot dot-one"></div>
         <div class="pink-dot dot-two"></div>
         <div class="pink-dot dot-three"></div>
@@ -55,7 +71,99 @@
 
     </main>
 
+
+
+    <!-- ================================= -->
+    <!-- SCREEN 2 : PINK SCANNER -->
+    <!-- ================================= -->
+
+    <main id="scannerScreen" class="screen hidden">
+
+        <div class="scanner-content">
+
+            <p class="small-text">
+                THE SEARCH HAS BEGUN
+            </p>
+
+            <h1 class="scanner-title">
+                Find something pink.
+            </h1>
+
+            <p class="scanner-description">
+                Show the camera anything pink.
+            </p>
+
+
+            <!-- Camera -->
+
+            <div class="camera-container">
+
+                <video
+                    id="camera"
+                    autoplay
+                    playsinline
+                ></video>
+
+                <!-- Scanning box -->
+
+                <div class="scan-box">
+
+                    <div class="corner top-left"></div>
+                    <div class="corner top-right"></div>
+                    <div class="corner bottom-left"></div>
+                    <div class="corner bottom-right"></div>
+
+                </div>
+
+                <!-- Scanning line -->
+
+                <div class="scan-line"></div>
+
+            </div>
+
+
+            <!-- Detection information -->
+
+            <div class="detection-info">
+
+                <div id="scanStatus">
+                    SCANNING...
+                </div>
+
+                <div class="percentage">
+
+                    PINK DETECTED:
+
+                    <span id="pinkPercentage">
+                        0%
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <button id="backButton">
+                GO BACK
+            </button>
+
+        </div>
+
+
+        <!-- Hidden canvas used for colour detection -->
+
+        <canvas
+            id="canvas"
+            width="320"
+            height="240"
+        ></canvas>
+
+    </main>
+
+
+
     <script src="script.js"></script>
 
 </body>
+
 </html>
