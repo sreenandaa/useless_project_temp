@@ -2,249 +2,593 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
     <title>Useless</title>
+
     <link rel="stylesheet" href="style.css">
+
 </head>
+
 
 <body>
 
+
     <!-- ================================= -->
-    <!-- SCREEN 1 : INTRODUCTION            -->
+    <!-- SCREEN 1 : INTRODUCTION -->
     <!-- ================================= -->
+
     <main id="introScreen" class="screen">
+
         <div class="background-glow"></div>
 
         <div class="content">
-            <p class="small-text">SOMETHING IS WAITING FOR YOU</p>
-            <h1>Something is waiting.</h1>
-            <p class="description">We just don't know where it is.</p>
+
+            <p class="small-text">
+                SOMETHING IS WAITING FOR YOU
+            </p>
+
+            <h1>
+                Something is waiting.
+            </h1>
+
+            <p class="description">
+                We just don't know where it is.
+            </p>
 
             <div class="instruction">
-                <span>Maybe you can find it.</span>
-                <strong>SPOT SOMETHING PINK</strong>
-                <small>Any shade. Any object. We don't judge.</small>
+
+                <span>
+                    Maybe you can find it.
+                </span>
+
+                <strong>
+                    SPOT SOMETHING PINK
+                </strong>
+
+                <small>
+                    Any shade. Any object. We don't judge.
+                </small>
+
             </div>
 
-            <button id="startButton">BEGIN THE SEARCH</button>
+            <button id="startButton">
+                BEGIN THE SEARCH
+            </button>
+
         </div>
 
         <div class="pink-dot dot-one"></div>
         <div class="pink-dot dot-two"></div>
         <div class="pink-dot dot-three"></div>
         <div class="pink-dot dot-four"></div>
+
     </main>
 
 
+
     <!-- ================================= -->
-    <!-- SCREEN 2 : PINK SCANNER            -->
+    <!-- SCREEN 2 : PINK SCANNER -->
     <!-- ================================= -->
+
     <main id="scannerScreen" class="screen hidden">
+
         <div class="scanner-content">
-            <p class="small-text">THE SEARCH HAS BEGUN</p>
-            <h1 class="scanner-title">Find something pink.</h1>
-            <p class="scanner-description">Show the camera anything pink.</p>
+
+            <p class="small-text">
+                THE SEARCH HAS BEGUN
+            </p>
+
+            <h1 class="scanner-title">
+                Find something pink.
+            </h1>
+
+            <p class="scanner-description">
+                Show the camera anything pink.
+            </p>
+
+
+            <!-- Camera -->
 
             <div class="camera-container">
-                <video id="camera" autoplay playsinline></video>
+
+                <video
+                    id="camera"
+                    autoplay
+                    playsinline
+                ></video>
+
+                <!-- Scanning box -->
 
                 <div class="scan-box">
+
                     <div class="corner top-left"></div>
                     <div class="corner top-right"></div>
                     <div class="corner bottom-left"></div>
                     <div class="corner bottom-right"></div>
+
                 </div>
+
+                <!-- Scanning line -->
 
                 <div class="scan-line"></div>
+
             </div>
+
+
+            <!-- Detection information -->
 
             <div class="detection-info">
-                <div id="scanStatus">SCANNING...</div>
+
+                <div id="scanStatus">
+                    SCANNING...
+                </div>
+
                 <div class="percentage">
-                    PINK DETECTED: <span id="pinkPercentage">0%</span>
+
+                    PINK DETECTED:
+
+                    <span id="pinkPercentage">
+                        0%
+                    </span>
+
                 </div>
+
             </div>
 
-            <button id="backButton">GO BACK</button>
+
+            <button id="backButton">
+                GO BACK
+            </button>
+
         </div>
 
-        <canvas id="canvas" width="320" height="240"></canvas>
+
+        <!-- Hidden canvas used for colour detection -->
+
+        <canvas
+            id="canvas"
+            width="320"
+            height="240"
+        ></canvas>
+
     </main>
-
-
     <!-- ================================= -->
-    <!-- SCREEN 3 : MAGIC ONION             -->
-    <!-- ================================= -->
-    <main id="onionScreen" class="screen hidden">
-        <div class="magic-background"></div>
+<!-- SCREEN 3 : MAGIC ONION -->
+<!-- ================================= -->
 
-        <div class="onion-content">
-            <p id="magicSmallText" class="small-text">SOMETHING UNEXPECTED</p>
-            <h1 id="magicTitle">Interesting...</h1>
-            <p id="magicDescription" class="magic-description">You found something.</p>
+<main id="onionScreen" class="screen hidden">
 
-            <div class="magic-onion">
-                <div class="magic-circle"></div>
-                <div id="onionEmoji">🧅</div>
+    <div class="magic-background"></div>
+
+    <div class="onion-content">
+
+        <!-- Small mysterious text -->
+
+        <p id="magicSmallText" class="small-text">
+            SOMETHING UNEXPECTED
+        </p>
+
+
+        <!-- Main text -->
+
+        <h1 id="magicTitle">
+            Interesting...
+        </h1>
+
+
+        <p id="magicDescription" class="magic-description">
+            You found something.
+        </p>
+
+
+        <!-- Onion -->
+
+        <div class="magic-onion">
+
+            <div class="magic-circle"></div>
+
+            <div id="onionEmoji">
+                🧅
             </div>
 
-            <div id="onionMessage" class="onion-message">
-                <p>This is a magic onion.</p>
-                <span>Something awaits you inside.</span>
-            </div>
-
-            <button id="continueButton">CONTINUE</button>
         </div>
-    </main>
 
 
-    <!-- ================================= -->
-    <!-- SCREEN 4 : PEEL SELECTION          -->
-    <!-- ================================= -->
-    <main id="peelSelectScreen" class="screen hidden">
-        <div class="peel-select-content">
-            <p class="small-text">THE ONION HAS A QUESTION</p>
-            <h1 class="peel-title">How many times<br>should we peel it?</h1>
-            <p class="peel-subtitle">Choose wisely. Or don't.</p>
+        <!-- Onion message -->
 
-            <div class="peel-counter">
-                <button id="minusButton" class="counter-button">−</button>
+        <div id="onionMessage" class="onion-message">
 
-                <div class="counter-number">
-                    <span id="peelCount">4</span>
-                    <small>PEELS</small>
-                </div>
-
-                <button id="plusButton" class="counter-button">+</button>
-            </div>
-
-            <div id="peelMessage" class="peel-message">
-                4 peels?
-                <span>That's... ambitious.</span>
-            </div>
-
-            <div class="peel-dots">
-                <span class="dot active"></span>
-                <span class="dot active"></span>
-                <span class="dot active"></span>
-                <span class="dot active"></span>
-                <span class="dot"></span>
-                <span class="dot"></span>
-            </div>
-
-            <button id="peelStartButton" class="peel-start-button">PEEL IT</button>
-        </div>
-    </main>
-
-
-    <!-- ================================= -->
-    <!-- SCREEN 5 : PREPARATION             -->
-    <!-- ================================= -->
-    <main id="prepareScreen" class="screen hidden">
-        <div class="prepare-content">
-            <p class="small-text">PEELING PROTOCOL</p>
-            <h1 id="prepareTitle">BIG THINGS<br>TAKE TIME.</h1>
-            <p id="prepareSubtitle" class="prepare-subtitle">Preparing your onion.</p>
-
-            <div class="loading-container">
-                <div class="loading-bar">
-                    <div id="loadingProgress" class="loading-progress"></div>
-                </div>
-                <div class="loading-percent">
-                    <span id="loadingPercent">0</span>%
-                </div>
-            </div>
-
-            <p id="loadingStatus" class="loading-status">
-                Initialising unnecessary technology...
+            <p>
+                This is a magic onion.
             </p>
 
-            <button id="beginPeelingButton" class="begin-peeling-button hidden">
-                BEGIN PEELING
+            <span>
+                Something awaits you inside.
+            </span>
+
+        </div>
+
+
+        <!-- Continue -->
+
+        <button id="continueButton">
+            CONTINUE
+        </button>
+
+    </div>
+
+</main>
+
+<!-- ================================= -->
+<!-- SCREEN 4 : PEEL SELECTION -->
+<!-- ================================= -->
+
+<main id="peelSelectScreen" class="screen hidden">
+
+    <div class="peel-select-content">
+
+        <p class="small-text">
+            THE ONION HAS A QUESTION
+        </p>
+
+
+        <h1 class="peel-title">
+            How many times<br>
+            should we peel it?
+        </h1>
+
+
+        <p class="peel-subtitle">
+            Choose wisely. Or don't.
+        </p>
+
+
+        <!-- NUMBER SELECTOR -->
+
+        <div class="peel-counter">
+
+            <button
+                id="minusButton"
+                class="counter-button"
+            >
+                −
             </button>
-        </div>
-    </main>
 
 
-    <!-- ================================= -->
-    <!-- SCREEN 6 : ACTUAL PEELING          -->
-    <!-- ================================= -->
-    <main id="peelingScreen" class="screen hidden">
-        <div class="peeling-content">
-            <p class="small-text">PEELING IN PROGRESS</p>
-            <h1 id="peelingTitle">PEEL THE<br>ONION.</h1>
-            <p id="peelingInstruction">One click. One peel.</p>
+            <div class="counter-number">
 
-            <div class="onion-stage">
-                <div class="onion-glow"></div>
-                <img id="onionAnimation" src="assets/onion/onion_01.png" alt="Magic onion">
+                <span id="peelCount">
+                    4
+                </span>
+
+                <small>
+                    PEELS
+                </small>
+
             </div>
 
-            <button id="peelButton" class="peel-button">PEEL 🧅</button>
 
-            <div class="peel-progress">
-                <span id="currentPeel">0</span> /
-                <span id="totalPeels">4</span>
-            </div>
-        </div>
-    </main>
-
-
-    <!-- ================================= -->
-    <!-- SCREEN 7 : FINAL REVEAL            -->
-    <!-- ================================= -->
-    <main id="finalScreen" class="screen hidden">
-        <div class="final-content">
-            <p class="small-text">MISSION COMPLETE</p>
-
-            <h1 id="finalTitle">YOU FOUND IT.</h1>
-            <p id="finalSubtitle">An onion.</p>
-            <p id="finalDescription">You spent all that effort for an onion.</p>
-
-            <div class="final-report">
-                <div class="report-row">
-                    <span>PEELS COMPLETED</span>
-                    <span id="finalPeels">0</span>
-                </div>
-                <div class="report-row">
-                    <span>MAGIC DISCOVERED</span>
-                    <span>0%</span>
-                </div>
-                <div class="report-row">
-                    <span>ANCIENT POWER</span>
-                    <span>0%</span>
-                </div>
-                <div class="report-row">
-                    <span>USEFULNESS</span>
-                    <span>0%</span>
-                </div>
-                <div class="report-row">
-                    <span>TIME WASTED</span>
-                    <span id="finalTime">00:00</span>
-                </div>
-                <div class="report-row">
-                    <span>REGRETS</span>
-                    <span>CALCULATING...</span>
-                </div>
-            </div>
-
-            <button id="tryAgainButton" class="try-again-button">
-                TRY AGAIN TO BE USELESS
+            <button
+                id="plusButton"
+                class="counter-button"
+            >
+                +
             </button>
+
         </div>
-    </main>
 
 
-    <!-- ================================= -->
-    <!-- AUDIO                              -->
-    <!-- ================================= -->
-    <audio
-        id="peelAudio"
-        src="assets/audio/aarekkettikkana.mp3"
-        preload="auto">
-    </audio>
+        <!-- Funny message -->
 
+        <div
+            id="peelMessage"
+            class="peel-message"
+        >
+            4 peels?
+
+            <span>
+                That's... ambitious.
+            </span>
+        </div>
+
+
+        <!-- Progress dots -->
+
+        <div class="peel-dots">
+
+            <span class="dot active"></span>
+            <span class="dot active"></span>
+            <span class="dot active"></span>
+            <span class="dot active"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+
+        </div>
+
+
+        <!-- Continue -->
+
+        <button
+            id="peelStartButton"
+            class="peel-start-button"
+        >
+            PEEL IT
+        </button>
+
+
+    </div>
+
+</main>
+<!-- ================================= -->
+<!-- SCREEN 5 : PREPARATION -->
+<!-- ================================= -->
+
+<main id="prepareScreen" class="screen hidden">
+
+    <div class="prepare-content">
+
+        <p class="small-text">
+            PEELING PROTOCOL
+        </p>
+
+
+        <h1 id="prepareTitle">
+            BIG THINGS<br>
+            TAKE TIME.
+        </h1>
+
+
+        <p id="prepareSubtitle" class="prepare-subtitle">
+            Preparing your onion.
+        </p>
+
+
+        <!-- Loading area -->
+
+        <div class="loading-container">
+
+            <div class="loading-bar">
+
+                <div
+                    id="loadingProgress"
+                    class="loading-progress"
+                ></div>
+
+            </div>
+
+
+            <div class="loading-percent">
+
+                <span id="loadingPercent">
+                    0
+                </span>%
+
+            </div>
+
+        </div>
+
+
+        <!-- Funny status -->
+
+        <p
+            id="loadingStatus"
+            class="loading-status"
+        >
+            Initialising unnecessary technology...
+        </p>
+
+
+        <!-- Final button -->
+
+        <button
+            id="beginPeelingButton"
+            class="begin-peeling-button hidden"
+        >
+            BEGIN PEELING
+        </button>
+
+    </div>
+
+</main>
+
+<!-- ================================= -->
+<!-- SCREEN 6 : ACTUAL PEELING -->
+<!-- ================================= -->
+
+<main id="peelingScreen" class="screen hidden">
+
+    <div class="peeling-content">
+
+        <p class="small-text">
+            PEELING IN PROGRESS
+        </p>
+
+        <h1 id="peelingTitle">
+            PEEL THE<br>
+            ONION.
+        </h1>
+
+        <p id="peelingInstruction">
+            One click. One peel.
+        </p>
+
+
+        <!-- ================================= -->
+        <!-- ONION ANIMATION -->
+        <!-- ================================= -->
+
+        <div class="onion-stage">
+
+            <div class="onion-glow"></div>
+
+            <img
+                id="onionAnimation"
+                src="assets/onion/onion_01.png"
+                alt="Magic onion"
+            >
+
+        </div>
+
+
+        <!-- ================================= -->
+        <!-- PEEL BUTTON -->
+        <!-- ================================= -->
+
+        <button
+            id="peelButton"
+            class="peel-button"
+        >
+            PEEL 🧅
+        </button>
+
+
+        <!-- ================================= -->
+        <!-- PEEL COUNTER -->
+        <!-- ================================= -->
+
+        <div class="peel-progress">
+
+            <span id="currentPeel">
+                0
+            </span>
+
+            /
+
+            <span id="totalPeels">
+                4
+            </span>
+
+        </div>
+
+    </div>
+
+</main>
+
+
+<!-- ================================= -->
+<!-- PEEL AUDIO -->
+<!-- ================================= -->
+
+<audio
+    id="peelAudio"
+    preload="auto"
+>
+</audio>
+<audio
+    id="peelAudio"
+    src="assets/audio/aarekkettikkana.mp3"
+    preload="auto">
+</audio>
+
+<!-- ================================= -->
+<!-- SCREEN 7 : THE USELESS CONCLUSION -->
+<!-- ================================= -->
+
+<main id="finalScreen" class="screen hidden">
+
+    <div class="final-content">
+
+        <p class="small-text">
+            PEELING COMPLETE
+        </p>
+
+        <h1 id="finalTitle">
+            CONGRATULATIONS.
+        </h1>
+
+        <p id="finalMessage">
+            You successfully peeled<br>
+            an onion.
+        </p>
+
+
+        <div class="final-onion">
+            🧅
+        </div>
+
+
+        <!-- Stats -->
+
+        <div class="final-stats">
+
+            <div class="stat">
+                <span>PEELS COMPLETED</span>
+                <strong id="finalPeels">
+                    4
+                </strong>
+            </div>
+
+            <div class="stat">
+                <span>PURPOSE</span>
+                <strong>
+                    UNKNOWN
+                </strong>
+            </div>
+
+            <div class="stat">
+                <span>TIME WASTED</span>
+                <strong id="timeWasted">
+                    CALCULATING...
+                </strong>
+            </div>
+
+        </div>
+
+
+        <button
+            id="leaveButton"
+            class="final-button"
+        >
+            RETURN TO THE BEGINNING
+        </button>
+
+    </div>
+
+</main>
+<!-- ================================= -->
+<!-- USELESS EXIT PROTOCOL -->
+<!-- ================================= -->
+
+<div
+    id="exitOverlay"
+    class="exit-overlay hidden"
+>
+
+    <div class="exit-box">
+
+        <p
+            id="exitSmallText"
+            class="small-text"
+        >
+            EXIT PROTOCOL
+        </p>
+
+        <h2 id="exitTitle">
+            ARE YOU SURE?
+        </h2>
+
+        <p id="exitMessage">
+            You are about to leave<br>
+            the onion behind.
+        </p>
+
+        <button
+            id="exitConfirmButton"
+            class="final-button"
+        >
+            YES, TAKE ME BACK
+        </button>
+
+    </div>
+
+</div>
     <script src="script.js"></script>
 
 </body>
