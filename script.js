@@ -1,15 +1,7 @@
-body {
-    font-family: Arial, sans-serif;
-    text-align: center;
-    padding-top: 100px;
-}
+const startButton = document.getElementById("startButton");
 
-h1 {
-    font-size: 40px;
-}
+startButton.addEventListener("click", function () {
 
-button {
-    padding: 15px 30px;
-    font-size: 20px;
-    cursor: pointer;
-}
+    alert("Pink scanner coming next! 🩷");
+
+});

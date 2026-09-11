@@ -1,5 +1,224 @@
-const startButton = document.getElementById("startButton");
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-startButton.addEventListener("click", function () {
-    alert("Something useless has begun.");
-});
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #080808;
+    color: white;
+    overflow: hidden;
+}
+
+.screen {
+    min-height: 100vh;
+    width: 100%;
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background:
+        radial-gradient(
+            circle at 50% 50%,
+            #21131d 0%,
+            #0c090b 45%,
+            #050505 100%
+        );
+}
+
+.content {
+    position: relative;
+    z-index: 2;
+
+    text-align: center;
+
+    width: 90%;
+    max-width: 800px;
+
+    animation: appear 1.5s ease;
+}
+
+.small-text {
+    font-size: 12px;
+    letter-spacing: 5px;
+    color: #aaa;
+    margin-bottom: 30px;
+}
+
+h1 {
+    font-size: clamp(45px, 8vw, 90px);
+    font-weight: 300;
+    letter-spacing: -3px;
+
+    margin-bottom: 20px;
+}
+
+.description {
+    font-size: 18px;
+    color: #aaa;
+    margin-bottom: 60px;
+}
+
+.instruction {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    margin-bottom: 50px;
+}
+
+.instruction span {
+    color: #999;
+    font-size: 16px;
+}
+
+.instruction strong {
+    font-size: clamp(28px, 5vw, 50px);
+    letter-spacing: 4px;
+
+    color: #ff7eb3;
+
+    text-shadow:
+        0 0 10px rgba(255, 126, 179, 0.5),
+        0 0 30px rgba(255, 126, 179, 0.25);
+}
+
+.instruction small {
+    color: #777;
+    font-size: 13px;
+}
+
+button {
+    border: 1px solid rgba(255, 255, 255, 0.25);
+
+    background: rgba(255, 255, 255, 0.05);
+
+    color: white;
+
+    padding: 18px 35px;
+
+    font-size: 13px;
+    letter-spacing: 3px;
+
+    cursor: pointer;
+
+    transition:
+        background 0.3s ease,
+        transform 0.3s ease,
+        border-color 0.3s ease;
+}
+
+button:hover {
+    background: rgba(255, 126, 179, 0.15);
+
+    border-color: #ff7eb3;
+
+    transform: translateY(-3px);
+}
+
+.background-glow {
+    position: absolute;
+
+    width: 500px;
+    height: 500px;
+
+    border-radius: 50%;
+
+    background: rgba(255, 50, 130, 0.08);
+
+    filter: blur(100px);
+
+    animation: glow 5s ease-in-out infinite;
+}
+
+
+/* Pink floating dots */
+
+.pink-dot {
+    position: absolute;
+
+    width: 5px;
+    height: 5px;
+
+    border-radius: 50%;
+
+    background: #ff7eb3;
+
+    box-shadow:
+        0 0 15px #ff7eb3;
+
+    opacity: 0.6;
+
+    animation: float 6s ease-in-out infinite;
+}
+
+.dot-one {
+    top: 20%;
+    left: 15%;
+}
+
+.dot-two {
+    top: 70%;
+    left: 80%;
+    animation-delay: 1s;
+}
+
+.dot-three {
+    top: 30%;
+    left: 85%;
+    animation-delay: 2s;
+}
+
+.dot-four {
+    top: 80%;
+    left: 20%;
+    animation-delay: 3s;
+}
+
+
+/* Animations */
+
+@keyframes appear {
+
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+@keyframes glow {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 0.6;
+    }
+
+    50% {
+        transform: scale(1.2);
+        opacity: 1;
+    }
+
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-30px);
+    }
+
+}
