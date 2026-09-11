@@ -80,6 +80,45 @@ const peelAudio =
 
 
 /* ================================= */
+/* SCREEN 7 ELEMENTS */
+/* ================================= */
+
+const finalScreen =
+    document.getElementById("finalScreen");
+
+const finalPeels =
+    document.getElementById("finalPeels");
+
+const timeWasted =
+    document.getElementById("timeWasted");
+
+const leaveButton =
+    document.getElementById("leaveButton");
+
+
+/* ================================= */
+/* EXIT PROTOCOL ELEMENTS */
+/* ================================= */
+
+const exitOverlay =
+    document.getElementById("exitOverlay");
+
+const exitSmallText =
+    document.getElementById("exitSmallText");
+
+const exitTitle =
+    document.getElementById("exitTitle");
+
+const exitMessage =
+    document.getElementById("exitMessage");
+
+const exitConfirmButton =
+    document.getElementById(
+        "exitConfirmButton"
+    );
+
+
+/* ================================= */
 /* CAMERA ELEMENTS */
 /* ================================= */
 
@@ -110,6 +149,14 @@ const ctx =
 /* ================================= */
 
 let cameraStream = null;
+
+
+/* ================================= */
+/* TIMER */
+/* ================================= */
+
+let uselessStartTime =
+    Date.now();
 
 
 /* ================================= */
@@ -764,15 +811,6 @@ function preparationComplete() {
 
 const TOTAL_FRAMES = 16;
 
-
-/*
-    How fast the onion changes
-    between frames.
-
-    Smaller = faster
-    Larger = slower
-*/
-
 const FRAME_TIME = 100;
 
 
@@ -836,21 +874,15 @@ beginPeelingButton.addEventListener(
 
 function startPeeling() {
 
-    /* Hide Screen 5 */
-
     prepareScreen
         .classList
         .add("hidden");
 
 
-    /* Show Screen 6 */
-
     peelingScreen
         .classList
         .remove("hidden");
 
-
-    /* Reset animation */
 
     currentPeelNumber = 0;
 
@@ -858,8 +890,6 @@ function startPeeling() {
 
     isPeeling = false;
 
-
-    /* Reset counter */
 
     currentPeel.textContent =
         "0";
@@ -869,20 +899,14 @@ function startPeeling() {
         peelCount;
 
 
-    /* Reset message */
-
     peelingInstruction.textContent =
         "One click. One peel.";
 
-
-    /* Reset button */
 
     peelButton
         .classList
         .remove("disabled");
 
-
-    /* Show first frame */
 
     onionAnimation.src =
         onionFrames[0].src;
@@ -902,21 +926,12 @@ peelButton.addEventListener(
 
 function performPeel() {
 
-    /*
-        Prevent clicking while
-        animation is running.
-    */
-
     if (isPeeling) {
 
         return;
 
     }
 
-
-    /*
-        Safety check.
-    */
 
     if (
         currentPeelNumber >=
@@ -931,16 +946,12 @@ function performPeel() {
     isPeeling = true;
 
 
-    /* ================================= */
-    /* PLAY SOUND */
-    /* ================================= */
+    /* Play sound */
 
     playPeelSound();
 
 
-    /* ================================= */
-    /* NEXT PEEL */
-/* ================================= */
+    /* Move to next peel */
 
     currentPeelNumber++;
 
@@ -950,15 +961,14 @@ function performPeel() {
 
 
     /*
-        Calculate which frame
-        this peel should end at.
+        Divide 16 animation frames
+        according to selected peels.
 
-        Example for 4 peels:
-
-        Peel 1 → frame 4
-        Peel 2 → frame 8
-        Peel 3 → frame 12
-        Peel 4 → frame 16
+        4 peels:
+        1 → 4
+        4 → 8
+        8 → 12
+        12 → 16
     */
 
     const targetFrame =
@@ -971,9 +981,7 @@ function performPeel() {
         );
 
 
-    /* ================================= */
-    /* UPDATE TEXT */
-    /* ================================= */
+    /* Change text */
 
     if (
         currentPeelNumber <
@@ -991,18 +999,14 @@ function performPeel() {
     }
 
 
-    /* ================================= */
-    /* SMALL ONION MOVEMENT */
-    /* ================================= */
+    /* Tiny movement */
 
     onionAnimation
         .classList
         .add("peeling");
 
 
-    /* ================================= */
-    /* PLAY FRAMES */
-    /* ================================= */
+    /* Animate */
 
     animateToFrame(
         targetFrame
@@ -1012,7 +1016,7 @@ function performPeel() {
 
 
 /* ================================= */
-/* ANIMATE BETWEEN FRAMES */
+/* ANIMATE FRAMES */
 /* ================================= */
 
 function animateToFrame(
@@ -1030,11 +1034,6 @@ function animateToFrame(
 
     let step = 0;
 
-
-    /*
-        If there is no frame
-        to animate, finish.
-    */
 
     if (totalSteps <= 0) {
 
@@ -1057,11 +1056,6 @@ function animateToFrame(
                     step;
 
 
-                /*
-                    Make sure frame
-                    doesn't go too far.
-                */
-
                 if (
                     currentFrame >
                     TOTAL_FRAMES
@@ -1073,19 +1067,11 @@ function animateToFrame(
                 }
 
 
-                /*
-                    Change onion image.
-                */
-
                 onionAnimation.src =
                     onionFrames[
                         currentFrame - 1
                     ].src;
 
-
-                /*
-                    Animation finished.
-                */
 
                 if (
                     step >=
@@ -1127,9 +1113,7 @@ function finishPeel() {
 
 
             /*
-                Check whether
-                all selected peels
-                are complete.
+                All selected peels complete.
             */
 
             if (
@@ -1145,12 +1129,15 @@ function finishPeel() {
                 peelingInstruction.textContent =
                     "The onion has been peeled.";
 
-                /*
-                    We stop here for now.
 
-                    Screen 7 can be connected
-                    later.
+                /*
+                    Move to Screen 7.
                 */
+
+                setTimeout(
+                    showFinalScreen,
+                    1200
+                );
 
             }
 
@@ -1175,11 +1162,6 @@ function playPeelSound() {
     }
 
 
-    /*
-        Start the sound
-        from the beginning.
-    */
-
     peelAudio.currentTime =
         0;
 
@@ -1187,10 +1169,6 @@ function playPeelSound() {
     const playPromise =
         peelAudio.play();
 
-
-    /*
-        Catch browser audio errors.
-    */
 
     if (
         playPromise !== undefined
@@ -1208,5 +1186,332 @@ function playPeelSound() {
         );
 
     }
+
+}
+
+
+/* ================================= */
+/* SCREEN 7 : FINAL SCREEN */
+/* ================================= */
+
+function showFinalScreen() {
+
+    /*
+        Hide peeling screen.
+    */
+
+    peelingScreen
+        .classList
+        .add("hidden");
+
+
+    /*
+        Show final screen.
+    */
+
+    finalScreen
+        .classList
+        .remove("hidden");
+
+
+    /*
+        Show number of peels.
+    */
+
+    finalPeels.textContent =
+        peelCount;
+
+
+    /*
+        Calculate wasted time.
+    */
+
+    const elapsed =
+        Math.floor(
+            (
+                Date.now() -
+                uselessStartTime
+            ) / 1000
+        );
+
+
+    if (elapsed < 60) {
+
+        timeWasted.textContent =
+            elapsed +
+            " SECONDS";
+
+    } else {
+
+        const minutes =
+            Math.floor(
+                elapsed / 60
+            );
+
+
+        const seconds =
+            elapsed % 60;
+
+
+        timeWasted.textContent =
+            minutes +
+            "M " +
+            seconds +
+            "S";
+
+    }
+
+}
+
+
+/* ================================= */
+/* FINAL SCREEN → EXIT PROTOCOL */
+/* ================================= */
+
+leaveButton.addEventListener(
+    "click",
+    startExitProtocol
+);
+
+
+/* ================================= */
+/* EXIT PROTOCOL */
+/* ================================= */
+
+let exitStep = 0;
+
+
+function startExitProtocol() {
+
+    exitStep = 1;
+
+
+    exitSmallText.textContent =
+        "EXIT PROTOCOL";
+
+
+    exitTitle.textContent =
+        "ARE YOU SURE?";
+
+
+    exitMessage.innerHTML =
+        `
+        You are about to leave<br>
+        the onion behind.
+        `;
+
+
+    exitConfirmButton.textContent =
+        "YES, TAKE ME BACK";
+
+
+    exitConfirmButton.disabled =
+        false;
+
+
+    exitOverlay
+        .classList
+        .remove("hidden");
+
+}
+
+
+/* ================================= */
+/* EXIT CONFIRM BUTTON */
+/* ================================= */
+
+exitConfirmButton.addEventListener(
+    "click",
+    nextExitStep
+);
+
+
+function nextExitStep() {
+
+
+    /* ================================= */
+    /* STEP 1 */
+    /* ================================= */
+
+    if (exitStep === 1) {
+
+        exitStep = 2;
+
+
+        exitSmallText.textContent =
+            "EXIT PROTOCOL 02";
+
+
+        exitTitle.textContent =
+            "WAIT.";
+
+
+        exitMessage.innerHTML =
+            `
+            We need to make sure<br>
+            you actually want to leave.
+            `;
+
+
+        exitConfirmButton.textContent =
+            "YES";
+
+
+        return;
+
+    }
+
+
+    /* ================================= */
+    /* STEP 2 */
+    /* ================================= */
+
+    if (exitStep === 2) {
+
+        exitStep = 3;
+
+
+        exitSmallText.textContent =
+            "EXIT PROTOCOL 03";
+
+
+        exitTitle.textContent =
+            "ONE LAST THING.";
+
+
+        exitMessage.innerHTML =
+            `
+            Was the onion<br>
+            worth it?
+            `;
+
+
+        exitConfirmButton.textContent =
+            "YES, OBVIOUSLY";
+
+
+        return;
+
+    }
+
+
+    /* ================================= */
+    /* STEP 3 */
+    /* ================================= */
+
+    if (exitStep === 3) {
+
+        exitStep = 4;
+
+
+        exitSmallText.textContent =
+            "PROCESSING";
+
+
+        exitTitle.textContent =
+            "INTERESTING.";
+
+
+        exitMessage.innerHTML =
+            `
+            Your answer has been recorded.<br>
+            It changes nothing.
+            `;
+
+
+        exitConfirmButton.textContent =
+            "OK";
+
+
+        return;
+
+    }
+
+
+    /* ================================= */
+    /* STEP 4 */
+/* ================================= */
+
+    if (exitStep === 4) {
+
+        exitSmallText.textContent =
+            "PLEASE WAIT";
+
+
+        exitTitle.textContent =
+            "RETURNING...";
+
+
+        exitMessage.innerHTML =
+            `
+            Taking you back to<br>
+            where this all began.
+            `;
+
+
+        exitConfirmButton.disabled =
+            true;
+
+
+        setTimeout(
+            returnToBeginning,
+            1800
+        );
+
+    }
+
+}
+
+
+/* ================================= */
+/* RETURN TO FRONT PAGE */
+/* ================================= */
+
+function returnToBeginning() {
+
+    /*
+        Hide final screen.
+    */
+
+    finalScreen
+        .classList
+        .add("hidden");
+
+
+    /*
+        Hide exit overlay.
+    */
+
+    exitOverlay
+        .classList
+        .add("hidden");
+
+
+    /*
+        Show front page.
+    */
+
+    introScreen
+        .classList
+        .remove("hidden");
+
+
+    /*
+        Reset exit protocol.
+    */
+
+    exitStep = 0;
+
+
+    exitConfirmButton.disabled =
+        false;
+
+
+    /*
+        Reset timer.
+    */
+
+    uselessStartTime =
+        Date.now();
 
 }
