@@ -856,7 +856,7 @@ for (
 /* ================================= */
 
 peelAudio.src =
-    "assets/audio/aarekkettikkana.mp3";
+     "assets/audio/anime-wow-sound-effect.mp3";
 
 peelAudio.preload =
     "auto";
