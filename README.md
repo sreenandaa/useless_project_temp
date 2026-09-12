@@ -23,7 +23,7 @@ Follow the instructions. Trust the process. Expect nothing]
 There was no system to turn this meaningless activity into an unnecessarily complicated mission. We decided to fix that.]
 
 ### The Solution (that nobody asked for)
-[Our solution is simple: make the user find something pink, follow instructions, and spend their precious time completing a pointless mission.
+[Our solution is simple: make the user find something pink, follow instructions, and spend their precious time completing a pointless mission — including removing a few unnecessary layers of onion along the way..
 Because apparently, that was necessary!]
 
 ## Technical Details
