@@ -2,34 +2,37 @@
 
 
 
-# [Project Name] 🎯
+# [Hidden Layer] 🎯
 
 
 ## Basic Details
-### Team Name: [Name]
+### Team Name: [BRAIN ROT]
 
 
 ### Team Members
-- Team Lead: [Name] - [College]
-- Member 2: [Name] - [College]
-- Member 3: [Name] - [College]
+
+- Member 1: [Sreenanda V H] - [TKM College OF Engineering]
+- Member 2: [Vaishnavi S Kumar] - [TKM College OF Engineering]
 
 ### Project Description
-[2-3 lines about what your project does]
+[One innocent search for pink somehow turns into a mission of questionable importance.
+Follow the instructions. Trust the process. Expect nothing]
 
 ### The Problem (that doesn't exist)
-[What ridiculous problem are you solving?]
+[People have forgotten the importance of finding random pink objects.
+There was no system to turn this meaningless activity into an unnecessarily complicated mission. We decided to fix that.]
 
 ### The Solution (that nobody asked for)
-[How are you solving it? Keep it fun!]
+[Our solution is simple: make the user find something pink, follow instructions, and spend their precious time completing a pointless mission.
+Because apparently, that was necessary!]
 
 ## Technical Details
 ### Technologies/Components Used
 For Software:
-- [Languages used]
+- [ HTML,CSS,JavaScript]
 - [Frameworks used]
 - [Libraries used]
-- [Tools used]
+- [Visual Studio Code, Git, GitHub, Live Server]
 
 For Hardware:
 - [List main components]
@@ -39,27 +42,28 @@ For Hardware:
 ### Implementation
 For Software:
 # Installation
-[commands]
+[No installation required]
 
 # Run
-[commands]
+[Open `index.html` in a web browser]
 
 ### Project Documentation
 For Software:
 
 # Screenshots (Add at least 3)
-![Screenshot1](Add screenshot 1 here with proper name)
-*Add caption explaining what this shows*
+![Screenshot1](screenshots/Screenshot1.png)
+*Landing page*
 
-![Screenshot2](Add screenshot 2 here with proper name)
-*Add caption explaining what this shows*
+![Screenshot2](screenshots/Screenshot2.png)
+*pink detection page*
 
-![Screenshot3](Add screenshot 3 here with proper name)
-*Add caption explaining what this shows*
+![Screenshot3](screenshots/Screenshot3.png)
+*onion peeling page*
 
 # Diagrams
-![Workflow](Add your workflow/architecture diagram here)
-*Add caption explaining your workflow*
+![Workflow](screenshots/workflow.png)
+*> **Workflow of the project, from finding something pink to completing the completely useless mission.**
+*
 
 For Hardware:
 
@@ -82,16 +86,19 @@ For Hardware:
 
 ### Project Demo
 # Video
-[Add your demo video link here]
-*Explain what the video demonstrates*
+[https://drive.google.com/file/d/1TvlmbJOJ8n_U010qcNbpO-OaKoIxz-hT/view?usp=sharing]
+*For the README demo video, keep it short and fun:
+
+> **A completely unnecessary journey from finding pink to discovering... absolutely nothing useful.**
+*
 
 # Additional Demos
 [Add any extra demo materials/links]
 
 ## Team Contributions
-- [Name 1]: [Specific contributions]
-- [Name 2]: [Specific contributions]
-- [Name 3]: [Specific contributions]
+- [Sreenanda V H]: [Java Script+Audio effect+ gitHub + Vercel deployment]
+- [Vaishnavi S kumar]: [Frontend or UI+Animation+testing+documentation ]
+- 
 
 ---
 Made with ❤️ at TinkerHub Useless Projects 
